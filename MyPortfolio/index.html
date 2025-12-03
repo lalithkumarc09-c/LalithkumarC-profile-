@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lalithkumar C | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+  --bg: #f4f4f8;
+  --text: #111827;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --border: #e5e7eb;
+}
+
+body.dark {
+  --bg: #020617;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --card: #0f172a;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  --border: #1f2937;
+}
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #22c55e, #16a34a);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+}
+
+.nav-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.btn-theme {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* HERO */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 2;
+  min-width: 260px;
+}
+
+.hero-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-tag {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 6px;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.hero-body {
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin-bottom: 18px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* PHOTO */
+
+.photo-ring {
+  padding: 4px;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 200deg,
+    #38bdf8,
+    #a855f7,
+    #22c55e,
+    #38bdf8
+  );
+}
+
+.photo-ring img {
+  display: block;
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 4px solid var(--card);
+}
+
+/* SECTIONS */
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* CARDS */
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.card-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.card-tags {
+  margin-top: 12px;
+}
+
+/* PILLS */
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.pill.small {
+  padding: 2px 8px;
+  font-size: 0.75rem;
+}
+
+/* CERTIFICATES */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.cert-card {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-card img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.cert-card figcaption {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* CONTACT */
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  font-size: 0.9rem;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  padding: 16px 10px 26px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ANIMATIONS */
+
+.fade-up,
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in {
+  transform: translateY(0);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    text-align: left;
+  }
+
+  .photo-ring img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-body {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="logo-dot"></span>
+      <h1 class="nav-name">Lalithkumar C</h1>
+    </div>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="btn-theme" onclick="toggleTheme()">🌙</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section hero" id="top">
+    <div class="hero-text fade-up">
+      <p class="hero-tag">Student · Developer · SKCET</p>
+      <h2>Hi, I'm <span class="accent">Lalithkumar C</span></h2>
+      <p class="hero-subtitle">Student at Sri Krishna College of Engineering and Technology (SKCET)</p>
+      <p class="hero-body">
+        I am a passionate student exploring programming and technology.
+        I enjoy building efficient solutions through hands-on projects and improving my coding skills.
+        I believe in clean code, logical thinking, and creativity.
+        My goal is to grow as a developer and contribute to impactful real-world projects.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn primary" href="#projects">View Project</a>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-photo fade-in">
+      <div class="photo-ring">
+        <img src="profile.jpg" alt="Photo of Lalithkumar C" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Who I am</p>
+
+    <div class="card fade-up">
+      <p>
+        I’m a student at SKCET with a strong interest in programming and software development.
+        I love understanding how things work behind the scenes and turning ideas into working code.
+        I’m currently building my skills through academic work, online courses, and personal projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Technologies I work with</p>
+
+    <div class="card fade-up">
+      <div class="pill-row">
+        <span class="pill">C Programming</span>
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+        <span class="pill">Python</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Hands-on learning</p>
+
+    <div class="card fade-up">
+      <h3 class="card-title">Student Attendance Management System</h3>
+      <p class="card-meta">C Language · ByteXL Platform</p>
+      <p>
+        A console-based system that helps teachers manage student attendance efficiently using C language.
+        It allows adding students, marking daily attendance, and viewing summaries.
+        The project focuses on improving accuracy, reducing manual work, and practicing core programming concepts
+        such as arrays, loops, conditional statements, and file handling.
+      </p>
+      <p class="card-tags">
+        <span class="pill small">C</span>
+        <span class="pill small">Problem Solving</span>
+        <span class="pill small">ByteXL</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="section" id="certificates">
+    <h2 class="section-title">Certificates</h2>
+    <p class="section-subtitle">Courses & workshops I've completed</p>
+
+    <div class="cert-grid">
+
+      <!-- 1 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-aws-genai-art.jpg" target="_blank">
+          <img src="cert-aws-genai-art.jpg"
+               alt="AWS - Introduction to Generative AI: Art of the Possible" />
+        </a>
+        <figcaption>
+          AWS – Introduction to Generative AI: Art of the Possible
+        </figcaption>
+      </figure>
+
+      <!-- 2 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-aws-data-eng.jpg" target="_blank">
+          <img src="cert-aws-data-eng.jpg"
+               alt="AWS - Data Engineering on AWS: Foundations" />
+        </a>
+        <figcaption>
+          AWS – Data Engineering on AWS: Foundations
+        </figcaption>
+      </figure>
+
+      <!-- 3 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-isro-thermal-remote-sensing.jpg" target="_blank">
+          <img src="cert-isro-thermal-remote-sensing.jpg"
+               alt="ISRO - Advances in Thermal Infrared Remote Sensing for Ecological Studies" />
+        </a>
+        <figcaption>
+          ISRO – Advances in Thermal Infrared Remote Sensing for Ecological Studies
+        </figcaption>
+      </figure>
+
+      <!-- 4 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-gcloud-genai.jpg" target="_blank">
+          <img src="cert-gcloud-genai.jpg"
+               alt="Google Cloud / Coursera - Introduction to Generative AI" />
+        </a>
+        <figcaption>
+          Google Cloud · Coursera – Introduction to Generative AI
+        </figcaption>
+      </figure>
+
+      <!-- 5 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-aws-job-roles.jpg" target="_blank">
+          <img src="cert-aws-job-roles.jpg"
+               alt="AWS - Job Roles in the Cloud" />
+        </a>
+        <figcaption>
+          AWS – Job Roles in the Cloud
+        </figcaption>
+      </figure>
+
+      <!-- 6 -->
+      <figure class="cert-card fade-up">
+        <a href="cert-cpr-awareness.jpg" target="_blank">
+          <img src="cert-cpr-awareness.jpg"
+               alt="Ministry of Youth Affairs & Sports - CPR Awareness Week Quiz Certificate" />
+        </a>
+        <figcaption>
+          Ministry of Youth Affairs & Sports – CPR Awareness Week Quiz
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">Let’s connect</p>
+
+    <div class="card fade-up">
+      <p><strong>Email:</strong> <a href="mailto:lalithkumarc09@gmail.com">lalithkumarc09@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91 76048 99371</p>
+
+      <h3>Social Profiles</h3>
+      <p class="social-links">
+        <a href="https://www.linkedin.com/in/lalith-kumar-388b6a37b" target="_blank">LinkedIn</a>
+        <span>·</span>
+        <a href="https://github.com/lalithkumarc09-c" target="_blank">GitHub</a>
+        <span>·</span>
+        <a href="https://www.instagram.com/lalith.offx.07" target="_blank">Instagram</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © <span id="year"></span> Lalithkumar C · All rights reserved.
+  </footer>
+
+  <!-- JS (theme + year + simple fade on scroll) -->
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // dark / light theme
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".btn-theme");
+      const dark = document.body.classList.contains("dark");
+      btn.textContent = dark ? "☀" : "🌙";
+    }
+
+    // simple scroll animation
+    const faders = document.querySelectorAll(".fade-up, .fade-in");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    faders.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
